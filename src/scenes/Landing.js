@@ -25,9 +25,6 @@ class Landing extends MasterScene {
     close() {
         cache.appendChild(html)
     }
-    click() {
-        // this.sceneHandler.goTo('scene2')
-    }
 }
 
 let landing = new Landing('landing')
