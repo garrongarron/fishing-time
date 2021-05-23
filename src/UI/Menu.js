@@ -1,5 +1,5 @@
 import cache from "../basic/Cache.js";
-import SceneHandler from "../scenes/SceneHandler.js";
+import sound from "../basic/Sound.js";
 import sceneList from "../scenes/SceneList.js";
 
 class Menu {
@@ -9,18 +9,15 @@ class Menu {
         this.node.classList.add('menu')
         let list = document.createElement('ul')
         let buttons = {
-            'Comenzar': () => {
-                // console.log('Comenzar');
+            'Start': () => {
                 this.sceneHandler.goTo(sceneList.demo)
+                this.close()
             },
-            'Menu': () => {
+            // 'Menu': () => {
 
-                console.log('Menu');
-            },
-            'Creditos': () => {
-
-
-
+            //     console.log('Menu');
+            // },
+            'Credits': () => {
                 let gameDesigner = document.createElement('div')
                 gameDesigner.innerHTML = 'Game designer: <b>StrikerZBE</b>'
                 gameDesigner.classList.add('gd')
@@ -39,6 +36,9 @@ class Menu {
             let li = document.createElement('li')
             li.innerText = key
             li.addEventListener('click', buttons[key])
+            li.addEventListener('mouseenter', () => {
+                sound.play('kill')
+            })
             list.appendChild(li)
         })
         this.node.appendChild(list)
