@@ -19,7 +19,6 @@ class Landing extends MasterScene {
         machine.addCallback(this.callback);
         machine.on();
 
-        console.log(html);
         document.body.appendChild(html)
     }
     close() {
@@ -27,5 +26,5 @@ class Landing extends MasterScene {
     }
 }
 
-let landing = new Landing('landing')
+let landing = new Landing()
 export default landing

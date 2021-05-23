@@ -46,7 +46,6 @@ class Demo extends MasterScene {
             mesh.scale.set(s, s, s)
             scene.add(mesh);
             mesh.position.y = -.20
-            console.log(mesh);
             characterController.setMesh(mesh)
             characterController.start()
         });
@@ -63,5 +62,5 @@ class Demo extends MasterScene {
     }
 }
 
-let demo = new Demo('demo')
+let demo = new Demo()
 export default demo

@@ -42,7 +42,6 @@ class Menu {
             list.appendChild(li)
         })
         this.node.appendChild(list)
-        console.log(this.node);
     }
     open(sceneHandler) {
         this.sceneHandler = sceneHandler

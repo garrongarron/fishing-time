@@ -16,13 +16,10 @@ class Loader {
 
         for (let index = 0; index < urlList.length; index++) {
             // if (!urlList.includes(index)) continue
-            console.log(urlList);
             promises[index] = new Promise((resolve, reject) => {
-                console.log(urlList[index]);
                 loader.load(urlList[index],
                     function(object) {
                         animations[index] = object.animations[0]
-                        console.log(animations);
                         resolve(index)
                     })
             })

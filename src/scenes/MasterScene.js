@@ -1,10 +1,10 @@
 class MasterScene {
-    constructor(instanceName) {
-        this.instanceName = instanceName
+    constructor() {
+        this.instanceName = this.constructor.name.toLowerCase()
         this.sceneHandler = null
     }
-    open() { }
-    close() { }
+    open() {}
+    close() {}
     toString() {
         return this.instanceName
     }
