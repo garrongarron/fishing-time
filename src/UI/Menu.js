@@ -11,7 +11,7 @@ class Menu {
         let buttons = {
             'Start': () => {
                 this.sceneHandler.goTo(sceneList.demo)
-                this.close()
+                    // this.close()
             },
             // 'Menu': () => {
 

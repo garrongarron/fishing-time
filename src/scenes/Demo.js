@@ -11,6 +11,7 @@ import remy from "../characters/Fisher/Remy.js";
 // import warrior from "../models/Warrior.js";
 import characterController from "../controllers/CharacterController.js"
 import canoaLoader from "../object/CanoaLoader.js";
+import cameraController from "../controllers/camera/CameraController.js";
 // import keyListener from "../basic/KeyListener.js";
 
 class Demo extends MasterScene {
@@ -37,18 +38,21 @@ class Demo extends MasterScene {
             canoa.position.z = -.25
             canoa.position.x = -.20
             canoa.position.y = .25
+
+            cameraController.start(canoa)
+            remy.getObject().then(mesh => {
+                mesh.position.set(0, 0, 0)
+                mesh.rotation.y = Math.PI
+                let s = 0.15
+                mesh.scale.set(s, s, s)
+                canoa.add(mesh);
+                mesh.position.y = -10
+                characterController.setMesh(mesh)
+                characterController.start()
+            });
         })
         scene.add(ocean)
-        remy.getObject().then(mesh => {
-            mesh.position.set(0, 0, 0)
-            mesh.rotation.y = Math.PI
-            let s = 0.005
-            mesh.scale.set(s, s, s)
-            scene.add(mesh);
-            mesh.position.y = -.20
-            characterController.setMesh(mesh)
-            characterController.start()
-        });
+
     }
     close() {
         characterController.stop()
