@@ -8,6 +8,7 @@ class Menu {
         this.node = document.createElement('div')
         this.node.classList.add('menu')
         let list = document.createElement('ul')
+        list.innerText = 'Menu'
         let buttons = {
             'Start': () => {
                 this.sceneHandler.goTo(sceneList.demo)
@@ -32,15 +33,20 @@ class Menu {
                 document.querySelector('.container').appendChild(container)
             },
         }
-        Object.keys(buttons).map(key => {
-            let li = document.createElement('li')
-            li.innerText = key
-            li.addEventListener('click', buttons[key])
-            li.addEventListener('mouseenter', () => {
-                sound.play('kill')
+
+        let callback = () => {
+            Object.keys(buttons).map(key => {
+                let li = document.createElement('li')
+                li.innerText = key
+                li.addEventListener('click', buttons[key])
+                li.addEventListener('mouseenter', () => {
+                    sound.play('kill')
+                })
+                list.appendChild(li)
             })
-            list.appendChild(li)
-        })
+            list.removeEventListener('click', callback)
+        }
+        list.addEventListener('click', callback)
         this.node.appendChild(list)
     }
     open(sceneHandler) {
